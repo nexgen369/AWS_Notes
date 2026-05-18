@@ -1,0 +1,305 @@
+About Cloud Overview and IAM:
+=============================
+what is cloud computing?
+AWS Global Infrastructure?
+Difference between IaaS, PaaS, IaaS?
+AWS Console and AWS Cli basics?
+What is IAM concept and security?
+How to create users/groups/policies/roles?
+How MFA works?
+hands-on!
+
+1.What is cloud Computing?
+ANs: Cloud computing is nothing but on-demand delivery of IT-Resources over the internet.
+you can access technical resources such as: comppute power, networking, security, databases etc
+with pay-as-you-go pricing model.
+
+Example: Cloud Providers into market (AWS, Azure, GCP_)
+
+why cloud?
+Instead of Buying servers, managing datacenters, handling cooling, power, network, security
+
+you no need to worry about anything AWS provides everything as a service
+
+Real-Time Example:
+==================
+Traditional infrastructure:
+===========================
+company buys:
+-servers
+-storage
+-network devices
+-UPS power
+-cooling systems
+
+Problems:
+-Expensive
+-Maintenance heavy
+-scaling scaling
+
+Cloud infrastructure:
+---------------------
+using aws:
+-Launch servers in mintues
+-pay only for usage
+-scalable automatically
+-Global access
+
+Advantages of Cloud:
+--------------------
+1.pay-as-you-go: No upfront cost
+2.scalability: increase/decrease resources instantly
+3.High availability: Multiple data centers
+4.Security: AWS managed security
+5.Global reach: Deploy world wide
+
+2.AWS Global Infrastructure:
+----------------------------
+aws infrastructure consist of :
+1.Regions
+A geographical area containing multiple datacenters
+Example:
+Mumbai, Hybderabad, Singapore, Us
+
+2.Availability zones
+An AZ is one or more isolated dat centers inside a region
+Example:
+mumbai region may have:
+ap-south-1a
+ap-south-1b
+ap-south-1c
+
+
+why Multiple Availability Zones?
+For:
+High availability
+diaster recovery
+Fault tolerance
+
+If one Az Fails the applocation still works in another AZ.
+
+3.Edge locations
+used by:
+1.cloudfront
+2.Route 53
+3.CDN services
+
+Purpose:
+Delivery content closer to users
+Reduce latency
+
+Example: Netflix-like streaming
+
+
+3.Cloud service models:
+=======================
+1.IaaS: Infrastructure as a service
+AWS gives:
+	-Virtual machines
+	-Storage
+	-Network
+You manage:
+	-OS
+	-Appliction
+	-Security patches
+	
+Examples:
+	-EC2
+	-EBS
+	-VPC
+
+Real-time example:
+------------------
+like renting: Empty apartment
+
+You arrange: Furniture, TV, Kitchen etc
+
+2.PaaS: Platform as a service
+AWS Manages:
+	-OS
+	-Runtime
+	-Infrastructure
+
+you manage:
+	-Application code
+	
+Examples:
+	-Elastic Beanstalk
+	-AWS lambda
+	-RDS
+	
+Real-time example:
+------------------
+Like: Fully furnished apartment (you only live/use it
+
+3.SaaS: Software as a service:
+------------------------------
+Everything managed by provider
+
+Example:
+teams
+Office 365
+Salesforce
+
+4. AWS Console & CLI:
+---------------------
+AWS Console
+	-Web-based GUI for aws service
+	
+	used for:
+	-Beginners
+	-Quick Management
+	-Monitoring
+	
+AWS CLI:
+Command line Interface to manage aws services using terminal
+
+Why CLI Important?
+DevOps Engineers use:
+-Automation
+-Scripting
+-CD/CD pipelines
+
+
+Install AWS CLI:
+1.Download and install git bash : https://git-scm.com/install/windows
+2.Download and install aws cli : msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi (execute the command into powershell) 
+3.Before aws configure please check the "aws --version"
+4.AWS configure : the command is "aws configure" 
+Inputs:
+1.Access key
+2.Secret key
+3.Region
+4.Output format
+
+5.AWS IAM : Identity and Access Management:
+-------------------------------------------
+what is IAM?
+
+IAM = identity and access Management
+
+used for: 
+	-Authentication : who are you?
+	-Authorization	: What can you access?
+	
+IAM Components:
+---------------
+1.Users: Individual Identities
+Example: DevOps Engineers, Developer, Tester
+
+2.Groups: Collection of users
+Example: DevOps-Team, Developers-Team, QA-Team
+
+3.Roles: Temporary permissions
+
+used by:
+	-EC2
+	-Lambda
+	-Cross-accounts access
+	
+	
+Real-Time Role Example:
+-----------------------
+EC2 is virtual server
+S3 is object storage
+
+EC2 accessing S3 bucket
+
+instead of storing credentails:
+-Attach IAM role to EC2
+
+4.Policies
+JSON document defining permissions
+
+Example:
+		
+		JSON Format
+		
+		
+		{
+			"version" : "2012-10-17"
+			"Statment: [
+				{
+					"Effect": "Allow",
+					"Action": "S3:*",
+					"Resource": "*"
+				}
+			]	
+		}
+
+
+IAM Best practices NEVER use root account Daily:
+------------------------------------------------
+
+Root account has:
+-Full permission
+-Dangerous access
+
+use only for:
+-Billing
+-MFA setup
+-Account recovery
+
+
+Enable MFA
+MFA: Multi factor authentication
+Adds: Password, OTP verification (much more secure)
+
+HANDS-ON PRACTICALS: LAB1: Create IAM users & Groups:
+-----------------------------------------------------
+
+
+Interview Questions:
+--------------------
+1.What is cloud computing?
+2.What is aws global infrastructure?
+3.What is basic models of cloud computing?
+4.what cloud, difference betwen traditional datacenter and cloud ?
+5.Why use IAM Group?
+6.Difference between root user and IAM user?
+7.Why use roles instead of Access keys?
+8.why happen if policy not attached?
+9.why avoid root access keys?
+10.what is MFA?
+
+FINAL RECAP:
+------------
+1.AWS CLI Installation
+2.AWS CLI Configuration
+3.IAM user Creation
+4.Group Management
+5.Policy attachment
+6.permission testing
+7.MFA setup
+8.IAM security best practices
+9.DevOps automation concept 
+
+LAB-TASK:
+---------
+Task 1:
+Create Group: DevOps-Team
+Create User: devuser1
+
+attach: EC2 ReadOnly Policy
+
+Task 2:
+Create custom policy:
+S3 full access
+
+attach to DevOps-team (group)
+
+
+
+Task 3:
+Test:
+	S3 access
+	EC2 access
+	
+	using cli
+	
+Task 4:
+Enable MFA to user
+
+
+Task 4: 
+Cleanup, delete users, groups, custom policy
