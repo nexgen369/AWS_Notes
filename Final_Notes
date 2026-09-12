@@ -1,0 +1,123 @@
+1.what is cloud computing?
+Cloud computing means getting computing resources such as:
+.Servers
+.Storage
+.Database
+.Networking
+.Security
+.Monitoring
+.Analytics
+.Application services etc
+over the internet without purchasing and maintaining all the physical
+infrastructure yourself.
+
+Tradtional infrastructure
+Company purchases:
+
+servers -> Storage -> Network -> Data center -> Power -> Cooling -> Maintenance
+
+Problems:
+.High upfront cost
+.Hardware procurement takes time
+.Limited scalability
+.Hardware maintenance
+.capacity planning
+.Disaster recovery is exepensive
+
+Cloud infrastructure
+Instead of purchasing a physical server, you can provision a virtaul server in AWS in 
+minutes.
+Example:
+Traditional:
+Buy server --> wait --> Install OS --> configure network --> deploy app 
+
+AWS:
+Create EC2 --> configure security --> deploy app
+
+2.Cloud Service Models
+IaaS - Infrastructure as a Service
+AWS manages physical infrastructure
+
+You manage:
+.OS
+.Applications
+.Runtime
+.Data
+
+Examples:
+.Amazon EC2
+
+PaaS-Platform as a Service
+AWS manages more of the underlying infrastructure/platform
+
+Examples:
+.AWS Elastic Beanstalk
+.AWS App Runner
+
+SaaS-Software as a service
+Complete application delivered to users (ready made to use app):
+
+Examples:
+.Gmail
+.Microsoft 365
+
+Simple Understanding:
+---------------------
+IaaS -> Infrastructure
+PaaS -> Platform
+SaaS -> Software
+
+3.AWS Global Infrastrucure:
+Region
+A geographical AWS location.
+
+Examples:
+ap-south-1  mumbai
+ap-south-2  hyderabad
+us-east-1   N.Virginia
+us-west-2   Oregon
+
+A Region contains multiple Availability zones
+
+Availabilty Zone
+An AZ is one or more discrete data centers with independent infrastructure
+
+Example:
+Mumbai Region
+|
+|---AZ-A
+|--AZ-B
+|--AZ-C
+
+Why multiple AZs?
+
+High Availability.
+
+Never design an important production application around a single AZ when the workload requires refional
+resilence
+
+Edge locations
+Used primarily for aws edge services such as Cloudfront
+Architecure:
+Users
+|
+Cloudfront Edge
+|
+AWS Origin
+
+Solutions Architect Associate Questions:
+-----------------------------------------
+Region = geographical area
+AZ = isolated infrastructure location within Region
+Edge = content/service delivery closer to users
+
+
+
+
+
+
+
+
+
+
+
